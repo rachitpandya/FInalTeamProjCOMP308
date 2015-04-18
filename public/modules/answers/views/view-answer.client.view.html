@@ -1,0 +1,60 @@
+<section data-ng-controller="AnswersController" data-ng-init="findOne()">
+	<div class="page-header">
+	<table>
+    <tr>
+        <h3>Thank you for answering the survey</h3><br>
+        <h4>You submitted the following answers</h4>
+    </tr>
+	    <tr>
+	        <td>
+	            <h4>Answer 1:&nbsp;&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4>Option&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4 data-ng-bind="answer.answer1"></h4>
+	        </td>
+	   </tr>
+        <tr>
+	        <td>
+	            <h4>Answer 2:&nbsp;&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4>Option&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4 data-ng-bind="answer.answer2"></h4>
+	        </td>
+	   </tr>
+        <tr>
+	        <td>
+	            <h4>Answer 3:&nbsp;&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4>Option&nbsp;</h4>
+	        </td>
+	        <td>
+	            <h4 data-ng-bind="answer.answer3"></h4>
+	        </td>
+	    </tr>
+	</table>
+
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == answer.user._id))">
+		<a class="btn btn-primary" href="/#!/answers/{{answer._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="answer.created | date:'mediumDate'"></span>
+<!--		by
+			<span data-ng-bind="answer.user.displayName"></span> -->
+		</em>
+	</small>
+</section>

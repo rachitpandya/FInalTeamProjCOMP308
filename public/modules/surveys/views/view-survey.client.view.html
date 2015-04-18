@@ -1,0 +1,122 @@
+<html>
+<head></head>
+<body>
+    <div class="col-md-12">
+        <div class="col-md-8">
+<div data-ng-controller="SurveysController" data-ng-init="findOne()">
+<!--<section data-ng-controller="SurveysController" data-ng-init="findOne()">-->
+	<br><br>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == survey.user._id))">
+		<a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/stats">
+			<i class="glyphicon glyphicon-stats"></i>
+		</a>
+		<a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="survey.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="survey.user.displayName"></span>
+		</em>
+	</small>
+	<div class="page-header"></div>
+
+	<table  width="100%">
+	    <tr style="border-bottom: 1px solid #ccc">
+	        <td colspan="6"><h1 data-ng-bind="survey.name"></h1></td>
+	    </tr>
+	    <tr style="border-bottom: 1px solid #ccc">
+            <td width="2%" valign="top">
+                <h4>Q1.</h4>
+                <h5>1.</h5>
+                <h5>2.</h5>
+                <h5 data-ng-hide="(survey.ans1Option3=='')">3.</h5>
+            </td>
+	        <td valign="top">
+	            <h4 data-ng-bind="survey.question1"></h4>
+		        <h5 data-ng-bind="survey.ans1Option1"></h5>
+		        <h5 data-ng-bind="survey.ans1Option2"></h5>
+		        <h5 data-ng-bind="survey.ans1Option3"></h5>
+	        </td>
+            </tr>
+        <tr style="border-bottom: 1px solid #ccc">
+	        <td width="2%" valign="top">
+                <h4>Q2.</h4>
+                <h5>1.</h5>
+                <h5>2.</h5>
+                <h5 data-ng-hide="(survey.ans2Option3=='')">3.</h5>
+            </td>
+	        <td valign="top">
+	            <h4 data-ng-bind="survey.question2"></h4>
+		        <h5 data-ng-bind="survey.ans2Option1"></h5>
+		        <h5 data-ng-bind="survey.ans2Option2"></h5>
+		        <h5 data-ng-bind="survey.ans2Option3"></h5>
+	        </td>
+            </tr>
+        <tr style="border-bottom: 1px solid #ccc">
+	        <td width="2%" valign="top">
+                <h4>Q3.</h4>
+                <h5>1.</h5>
+                <h5>2.</h5>
+                <h5>3.</h5>
+            </td>
+	        <td valign="top">
+	            <h4 data-ng-bind="survey.question3"></h4>
+		        <h5 data-ng-bind="survey.ans3Option1"></h5>
+		        <h5 data-ng-bind="survey.ans3Option2"></h5>
+		        <h5 data-ng-bind="survey.ans3Option3"></h5>
+	        </td>
+	    </tr>
+	</table>
+</div>
+        </div>
+<br>
+<!-- Answers Section -->
+        <div class="col-md-4">
+<div data-ng-controller="AnswersController">
+    <div class="col-md-12"  style="margin-top:150px">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <div class="controls">
+                       <table style=" border-collapse:separate; border-spacing:0 70px;"   width="100%">
+
+                           <tr>
+                               <td>
+                                   <input type="text" data-ng-model="answer1" id="answer1" class="form-control" placeholder="Answer 1" required style="width: 30%">
+                               </td>
+                           </tr>    
+                           <tr>
+                               <td>
+                                   <input type="text" data-ng-model="answer2" id="answer2" class="form-control" placeholder="Answer 2" required style="width: 30%">
+                               </td>
+                               </tr>    
+                           <tr>
+                               <td>
+                                   <input type="text" data-ng-model="answer3" id="answer3" class="form-control" placeholder="Answer 3" required style="width: 30%">
+                               </td>
+                           </tr>
+                       </table>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Submit Answers"><font color="gray">*Enter option number as answer</font>
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+        </div>
+        </div>
+    </body>
+</html>

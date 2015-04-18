@@ -1,0 +1,50 @@
+<section data-ng-controller="SurveysController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>EditYour Survey</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name of Survey</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="survey.name" id="name" class="form-control" placeholder="Name" required>
+                        <br>
+                        <label class="control-label" for="question1">Question 1</label>
+                        <input type="text" data-ng-model="survey.question1" id="name" class="form-control" placeholder="Question 1" required>
+                        <label class="control-label" for="ans1Option1">Choice 1</label>
+                        <input type="text" data-ng-model="survey.ans1Option1" id="ans1Option1" class="form-control" placeholder="Option 1" required style="width: 30%">
+                        <label class="control-label" for="ans1Option2">Choice 2</label>
+                        <input type="text" data-ng-model="survey.ans1Option2" id="ans1Option2" class="form-control" placeholder="Option 2" required style="width: 30%">
+                        <label class="control-label" for="ans1Option3">Choice 3</label>
+                        <input type="text" data-ng-model="survey.ans1Option3" id="ans1Option3" class="form-control" placeholder="Option 3" required style="width: 30%">
+                        <br>
+                        <label class="control-label" for="question2">Question 2</label>
+                        <input type="text" data-ng-model="survey.question2" id="name" class="form-control" placeholder="Question 2" required>
+                        <label class="control-label" for="ans2Option1">Choice 1</label>
+                        <input type="text" data-ng-model="survey.ans2Option1" id="ans2Option1" class="form-control" placeholder="Option 1" required style="width: 30%">
+                        <label class="control-label" for="ans2Option2">Choice 2</label>
+                        <input type="text" data-ng-model="survey.ans2Option2" id="ans2Option2" class="form-control" placeholder="Option 2" required style="width: 30%">
+                        <label class="control-label" for="ans2Option3">Choice 3</label>
+                        <input type="text" data-ng-model="survey.ans2Option3" id="ans2Option3" class="form-control" placeholder="Option 3" required style="width: 30%">
+                        <br>
+                        <label class="control-label" for="question3">Question 3</label>
+                        <input type="text" data-ng-model="survey.question3" id="name" class="form-control" placeholder="Question 3" required>
+                        <label class="control-label" for="ans3Option1">Choice 1</label>
+                        <input type="text" data-ng-model="survey.ans3Option1" id="ans3Option1" class="form-control" placeholder="Option 1" required style="width: 30%">
+                        <label class="control-label" for="ans3Option2">Choice 2</label>
+                        <input type="text" data-ng-model="survey.ans3Option2" id="ans3Option2" class="form-control" placeholder="Option 2" required style="width: 30%">
+                        <label class="control-label" for="ans3Option3">Choice 3</label>
+                        <input type="text" data-ng-model="survey.ans3Option3" id="ans3Option3" class="form-control" placeholder="Option 3" required style="width: 30%">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

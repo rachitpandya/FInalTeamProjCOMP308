@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+
+<!-- Answers Section -->
+<div data-ng-controller="AnswersController">
+       <div class="col-md-12">
+        <form class="form-horizontal" data-ng-init="findStats()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <div class="controls">
+                       <table  width="100%">
+                          <tr>
+                              <td colspan="3" valign="top">
+                                   <h3>Survey Statistics</h3><br>
+                                   <h5>Total number of respondants: </h5>
+                                  <h6>{{stats}}</h6>
+                                  <p data-ng-repeat="stat in stats" class="list-group-item">
+                                      <small data-ng-bind="stat.ans1Option1"></small>
+                                  </p>
+                              </td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
